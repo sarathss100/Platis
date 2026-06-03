@@ -5,7 +5,7 @@ from decimal import Decimal
 class MetalPlate:
     width_mm: Decimal
     length_mm: Decimal
-    thickness_mm: Decimal
+    thickness_mm: Decimal = Decimal("4")
     # Default density of structural Steel: 7850 kg/m3
     density_kg_m3: Decimal = Decimal("7850")
 
@@ -19,16 +19,8 @@ class MetalPlate:
     
     @property
     def volume_m3(self):
-        return self.volume_mm3 / Decimal("1000_000_000")
+        return self.volume_mm3 / Decimal("1000000000")
     
     @property
     def weight(self):
         return self.volume_m3 * self.density_kg_m3
-    
-plate = MetalPlate(
-    length_mm=Decimal("2500"),
-    width_mm=Decimal("1200"),
-    thickness_mm=Decimal("20")
-)
-
-print(plate.weight)

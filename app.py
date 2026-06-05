@@ -10,11 +10,11 @@ plates = [
 
 def calculate_utilization(plate, plates):
     total_plate_area_available = plate.area
-    total_plate_area_required = 0
+    total_plate_area_required = 0.0
     for shape in plates:
         total_plate_area_required += shape.area
 
     utilization_percentage = total_plate_area_required * 100 / total_plate_area_available
     return utilization_percentage
 
-print(calculate_utilization(plate, plates))
+print(round(calculate_utilization(plate, plates), 2))

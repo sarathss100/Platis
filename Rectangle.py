@@ -2,10 +2,13 @@ from dataclasses import dataclass
 
 @dataclass
 class Rectangle:
+    # Dimensions
     width_mm: float
     length_mm: float
-    x: float = 0.0
-    y: float = 0.0
+
+    # Position (Origin at bottom left)
+    bottom_left_x_mm: float = 0.0
+    bottom_left_y_mm: float = 0.0
 
     @property
     def area(self) -> float:

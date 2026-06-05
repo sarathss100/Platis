@@ -1,11 +1,12 @@
 from MetalPlate import MetalPlate
 from Rectangle import Rectangle
 
-plate = MetalPlate(1500, 6000)
+plate = MetalPlate(1500.0, 6000.0, 0.0, 0.0)
 
 plates = [
-    Rectangle(500, 300),
-    Rectangle(200, 400)
+    Rectangle(500.0, 300.0, 0.0, 0.0),
+    Rectangle(200.0, 400.0, 0.0, 310.0),
+    Rectangle(400.0, 500.0, 0.0, 720.0)
 ]
 
 def calculate_utilization(plate, plates):

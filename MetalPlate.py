@@ -7,6 +7,8 @@ class MetalPlate:
     thickness_mm: float = 4.0
     # Default density of structural Steel: 7850 kg/m3
     density_kg_m3: float = 7850.0
+    x: float = 0.0
+    y: float = 0.0
 
     @property
     def area(self) -> float:

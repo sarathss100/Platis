@@ -20,12 +20,11 @@ def calculate_utilization(plate, plates):
     return round(utilization_percentage, 2)
 
 def is_part_inside_plate(plate, rectangle):
-    if plate.bottom_left_x_mm > rectangle.bottom_left_x_mm or plate.bottom_left_y_mm > rectangle.bottom_left_y_mm:
-        return False
+    if rectangle.bottom_left_x_mm < plate.bottom_left_x_mm or \
+        rectangle.bottom_left_y_mm < plate.bottom_left_y_mm:
+            return False
     plate_top_right_x_mm = plate.bottom_left_x_mm + plate.length_mm
     plate_top_right_y_mm = plate.bottom_left_y_mm + plate.width_mm
-    rectangle_top_left_x_mm = rectangle.bottom_left_x_mm + rectangle.length_mm
-    rectangle_top_left_y_mm = rectangle.bottom_left_y_mm + rectangle.width_mm
-    return  rectangle_top_left_x_mm <= plate_top_right_x_mm and rectangle_top_left_y_mm <= plate_top_right_y_mm
-
-print(is_part_inside_plate(plate, plates[2]))
+    rectangle_top_right_x_mm = rectangle.bottom_left_x_mm + rectangle.length_mm
+    rectangle_top_right_y_mm = rectangle.bottom_left_y_mm + rectangle.width_mm
+    return  rectangle_top_right_x_mm <= plate_top_right_x_mm and rectangle_top_right_y_mm <= plate_top_right_y_mm

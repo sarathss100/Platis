@@ -3,8 +3,8 @@ from dataclasses import dataclass
 @dataclass
 class Rectangle:
     # Dimensions
-    width_mm: float
-    length_mm: float
+    width_mm: float = 0.0
+    length_mm: float = 0.0
 
     # Position (Origin at bottom left)
     bottom_left_x_mm: float = 0.0

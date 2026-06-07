@@ -6,8 +6,8 @@ plate = MetalPlate(1500, 6000, 0.0, 0.0)
 plates = [
     Rectangle(500, 300, 0.0, 0.0),
     Rectangle(200, 400, 0.0, 310),
-    Rectangle(400, 500, 0.0, 720),
-    Rectangle(2000, 3000, 0.0, 1130)
+    Rectangle(400, 500, -10.0, 710),
+    Rectangle(2000, 3000, 0.0, 1120)
 ]
 
 def calculate_utilization(plate, plates):
@@ -20,7 +20,7 @@ def calculate_utilization(plate, plates):
     return round(utilization_percentage, 2)
 
 def is_part_inside_plate(plate, rectangle):
-    if plate.bottom_left_x_mm < rectangle.bottom_left_x_mm and plate.bottom_left_y_mm < rectangle.bottom_left_y_mm:
+    if plate.bottom_left_x_mm > rectangle.bottom_left_x_mm or plate.bottom_left_y_mm > rectangle.bottom_left_y_mm:
         return False
     plate_top_right_x_mm = plate.bottom_left_x_mm + plate.length_mm
     plate_top_right_y_mm = plate.bottom_left_y_mm + plate.width_mm

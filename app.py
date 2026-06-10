@@ -19,6 +19,20 @@ def calculate_utilization(plate, plates):
     utilization_percentage = total_plate_area_required * 100 / total_plate_area_available
     return round(utilization_percentage, 2)
 
+def get_rectangle_vertices(plate):
+    x0 = plate.bottom_left_x_mm;
+    y0 = plate.bottom_left_y_mm;
+
+    x1 = x0 + plate.length_mm;
+    y1 = y0 + plate.width_mm;
+
+    return {
+        "left-bottom-corner": (x0, y0),
+        "left-top-corner": (x0, y1),
+        "right-bottom-corner": (x1, y0),
+        "right-top-corner": (x1, y1)
+    }
+
 def is_part_inside_plate(plate, rectangle):
     if rectangle.bottom_left_x_mm < plate.bottom_left_x_mm or \
         rectangle.bottom_left_y_mm < plate.bottom_left_y_mm:
@@ -56,4 +70,3 @@ def is_parts_overlapped(plate1, plate2, cutting_allowance = 10):
         return False
 
     return True
-

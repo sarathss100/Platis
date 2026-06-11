@@ -1,7 +1,11 @@
-from MetalPlate import MetalPlate
-from Rectangle import Rectangle
+from models.MetalPlate import MetalPlate
+from models.Rectangle import Rectangle
+from models.Layout import Layout
 
 plate = MetalPlate(1500, 6000, 0.0, 0.0)
+
+val = Layout(plate)
+val.display()
 
 plates = [
     Rectangle(500, 300, 0.0, 0.0),
@@ -70,3 +74,5 @@ def is_parts_overlapped(plate1, plate2, cutting_allowance = 10):
         return False
 
     return True
+
+

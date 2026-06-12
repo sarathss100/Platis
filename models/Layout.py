@@ -8,4 +8,4 @@ class Layout:
     plates: list[Rectangle] = field(default_factory=list)
 
     def display(self):
-        print(self.plate)
+        

@@ -6,6 +6,3 @@ from models.Rectangle import Rectangle
 class SimplePlacer:
     plate: MetalPlate
     parts: list[Rectangle] = field(default_factory=list)
-
-    def print(self):
-        print(self)
